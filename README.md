@@ -1,26 +1,31 @@
-# LeviLamina Mod Template
+# CrossServerTeleport
 
-Mod Template for LeviLamina
+A LeviLamina native plugin that provides cross-server teleport menus for Bedrock dedicated servers.
 
-## Usage
+## Features
 
-For detailed instructions, see the [LeviLamina Documentation](https://lamina.levimc.org/developer_guides/tutorials/create_your_first_mod/)
+- `/servertp` command with `/stp` alias.
+- Player-facing server selection and teleport confirmation forms.
+- Operator-only management forms for adding, editing, deleting, enabling, disabling, and reloading servers.
+- Configurable teleport delay, global enable switch, and optional permission flags.
+- Transfer is performed with Bedrock `TransferPacket`.
 
-1. Generate a new repository from this template
-2. Clone the new repository
-3. Change the mod name and the expected LeviLamina version in `xmake.lua`
-4. Add your code.
-5. Run `xmake f -y -p windows -a x64 -m release` in the root of the repository
-6. Run `xmake` to build the mod.
+## Config
 
-After a successful build, you will find mod in `bin/`
+The plugin creates its config at:
 
-## Contributing
+```text
+plugins/cross-server-teleport/config/config.json
+```
 
-Ask questions by creating an issue.
+Server addresses use `host:port`. If the port is omitted or invalid, `19132` is used.
 
-PRs accepted.
+## Build
 
-## License
+```powershell
+xmake f -m release
+xmake build
+```
 
-CC0-1.0 © LeviMC(LiteLDev)
+The packed plugin is generated under `bin/cross-server-teleport`.
+
